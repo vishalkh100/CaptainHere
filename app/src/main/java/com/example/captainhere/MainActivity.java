@@ -25,10 +25,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("Test", globalFunctions.getTest1() );
         globalFunctions.setTest1("Success");
+        setViews();
+        initializeViews();
     }
 
     private void setViews() {
         titleHeading = findViewById(R.id.titleHeading);
+        menuButton = findViewById(R.id.menuButton);
+        addButton = findViewById(R.id.addButton);
+        tableListView = findViewById(R.id.tableListView);
+    }
+
+    private void initializeViews() {
+        String title = this.getString(R.string.table_screen_title);
+        titleHeading.setText(title);
     }
 
 }

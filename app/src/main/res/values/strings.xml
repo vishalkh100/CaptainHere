@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CaptainHere</string>
+    <string name="table_screen_title">Add/View Tables</string>
 </resources>
