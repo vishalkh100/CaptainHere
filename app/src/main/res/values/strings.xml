@@ -2,4 +2,5 @@
     <string name="app_name">CaptainHere</string>
     <string name="table_screen_title">View Tables</string>
     <string name="add_table_title">Add New Table</string>
+    <string name="add_product_title">Add New Product</string>
 </resources>

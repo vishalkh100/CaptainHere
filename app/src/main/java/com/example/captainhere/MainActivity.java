@@ -70,11 +70,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClickListeners() {
         addButton.setOnClickListener(
-                v -> openNewActivity()
+                v -> openAddTableActivity()
+        );
+
+        backImg.setOnClickListener(
+                v -> openAddProductActivity()
         );
     }
 
-    public void openNewActivity(){
+    public void openAddTableActivity(){
+        Intent intent = new Intent(this, AddTableActivity.class);
+        startActivity(intent);
+    }
+
+    public void openAddProductActivity(){
         Intent intent = new Intent(this, AddTableActivity.class);
         startActivity(intent);
     }
