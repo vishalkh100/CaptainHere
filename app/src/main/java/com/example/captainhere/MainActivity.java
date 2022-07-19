@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     TextView titleHeading;
     ImageView menuButton;
     ImageView addButton;
+    ImageView backImg;
     ListView tableListView;
 
     LinearLayout listViewLayout;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         makeAdapter();
         arrayOfUsers = dataGetSet.getArrayOfUsers();
 
+        //arrayOfUsers.add(new Table("test", "test"));
+
         TableListAdapter adapter = new TableListAdapter(this, arrayOfUsers);
         if(!arrayOfUsers.isEmpty()) {
             listViewLayout.setVisibility(View.VISIBLE);
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         tableListView = findViewById(R.id.tableListView);
         listViewLayout = findViewById(R.id.listViewLayout);
         noEntryLayout = findViewById(R.id.noEntryLayout);
+        backImg = findViewById(R.id.backImg);
     }
 
     private void initializeViews() {

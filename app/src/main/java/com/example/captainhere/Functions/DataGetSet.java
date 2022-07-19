@@ -25,10 +25,10 @@ public class DataGetSet {
     public void setArrayOfUsers(ArrayList<Table> arrayOfTables) {
         this.arrayOfTables = arrayOfTables;
     }
-    public void addTable(Table table) {
+    public static void addTable(Table table) {
         arrayOfTables.add(table);
     }
-    public void removeTable(Table table) {
+    public static void removeTable(Table table) {
         arrayOfTables.remove(table);
     }
 
