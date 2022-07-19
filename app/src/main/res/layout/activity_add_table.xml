@@ -59,16 +59,22 @@
                 android:id="@+id/tableNameContainer"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical"
                 android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Table Name" />
 
                 <EditText
                     android:id="@+id/editTextTableName"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Table Name" />
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
             <LinearLayout
@@ -78,14 +84,19 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Amount" />
+
                 <EditText
                     android:id="@+id/editTextBillAmount"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Bill" />
+                    android:minHeight="48dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -99,7 +110,7 @@
                     android:id="@+id/addTableButton"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:text="Button" />
+                    android:text="ADD TABLE" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

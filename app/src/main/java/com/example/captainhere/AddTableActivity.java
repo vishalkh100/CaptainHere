@@ -8,8 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.captainhere.Functions.DataGetSet;
+import com.example.captainhere.Models.Table;
+
 
 public class AddTableActivity extends AppCompatActivity {
+
+    DataGetSet dataGetSet;
 
     ImageView backImg;
     EditText editTextTableName;
@@ -35,9 +40,22 @@ public class AddTableActivity extends AppCompatActivity {
         backImg.setOnClickListener(
                 v -> openPreviousActivity()
         );
+        addTableButton.setOnClickListener(
+                v -> addTableToList()
+        );
     }
 
     private void openPreviousActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void addTableToList() {
+        String name = editTextTableName.getText().toString();
+        String amount = editTextBillAmount.getText().toString();
+        Table table = new Table(name, amount);
+        dataGetSet.addTable(table);
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

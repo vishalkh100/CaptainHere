@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.captainhere.Functions.DataGetSet;
+import com.example.captainhere.Models.Table;
+import com.example.captainhere.Models.TableListAdapter;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout listViewLayout;
     LinearLayout noEntryLayout;
 
+    ArrayList<Table> arrayOfUsers = new ArrayList<Table>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
         setViews();
         initializeViews();
         onClickListeners();
+
+        makeAdapter();
+        arrayOfUsers = dataGetSet.getArrayOfUsers();
+
+        TableListAdapter adapter = new TableListAdapter(this, arrayOfUsers);
+        if(!arrayOfUsers.isEmpty()) {
+            listViewLayout.setVisibility(View.VISIBLE);
+        } else {
+            listViewLayout.setVisibility(View.GONE);
+        }
+        tableListView.setAdapter(adapter);
     }
 
     private void setViews() {
@@ -57,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
     public void openNewActivity(){
         Intent intent = new Intent(this, AddTableActivity.class);
         startActivity(intent);
+    }
+
+    private void makeAdapter() {
+        // Create the adapter to convert the array to views
+
     }
 
 }
