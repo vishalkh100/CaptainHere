@@ -14,8 +14,6 @@ import com.example.captainhere.Functions.DataGetSet;
 import com.example.captainhere.Functions.TinyDB;
 import com.example.captainhere.Models.Product;
 import com.example.captainhere.Models.ProductListAdapter;
-import com.example.captainhere.Models.Table;
-import com.example.captainhere.Models.TableListAdapter;
 
 import java.util.ArrayList;
 
@@ -30,7 +28,7 @@ public class ViewProductsActivity extends AppCompatActivity {
     LinearLayout listViewLayout;
     LinearLayout noEntryLayout;
 
-    ArrayList<Product> arrayOfProducts = new ArrayList<Product>();
+    ArrayList<Product> arrayOfProducts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class ViewProductsActivity extends AppCompatActivity {
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> playerObjects = tinydb.getListObject("productList", Product.class);
-        ArrayList<Product> productList = new ArrayList<Product>();
+        ArrayList<Product> productList = new ArrayList<>();
 
         for(Object objs : playerObjects){
             productList.add((Product) objs);

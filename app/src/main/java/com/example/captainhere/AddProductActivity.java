@@ -10,7 +10,6 @@ import android.widget.ImageView;
 
 import com.example.captainhere.Functions.DataGetSet;
 import com.example.captainhere.Models.Product;
-import com.example.captainhere.Models.Table;
 
 public class AddProductActivity extends AppCompatActivity {
 

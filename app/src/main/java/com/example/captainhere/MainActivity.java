@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.captainhere.Functions.DataGetSet;
 import com.example.captainhere.Functions.TinyDB;
@@ -23,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     DataGetSet dataGetSet = new DataGetSet();
     TextView titleHeading;
-    ImageView menuButton;
     ImageView addButton;
     ImageView backImg;
     ListView tableListView;
@@ -31,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout listViewLayout;
     LinearLayout noEntryLayout;
 
-    ArrayList<Table> arrayOfUsers = new ArrayList<Table>();
+    ArrayList<Table> arrayOfUsers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> playerObjects = tinydb.getListObject("tableList", Table.class);
-        ArrayList<Table> tableList = new ArrayList<Table>();
+        ArrayList<Table> tableList = new ArrayList<>();
 
         for(Object objs : playerObjects){
             tableList.add((Table) objs);
@@ -62,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setViews() {
         titleHeading = findViewById(R.id.titleHeading);
-        menuButton = findViewById(R.id.backImg);
         addButton = findViewById(R.id.addButton);
         tableListView = findViewById(R.id.tableListView);
         listViewLayout = findViewById(R.id.listViewLayout);

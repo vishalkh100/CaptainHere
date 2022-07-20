@@ -32,7 +32,7 @@ public class TableDetails extends AppCompatActivity {
 
     Table selectedTable;
 
-    ArrayList<Product> arrayOfItems = new ArrayList<Product>();
+    ArrayList<Product> arrayOfItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

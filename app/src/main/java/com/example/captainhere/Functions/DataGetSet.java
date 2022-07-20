@@ -11,8 +11,8 @@ public class DataGetSet {
 
     // variables
 
-    private static ArrayList<Table> arrayOfTables = new ArrayList<Table>();
-    private static ArrayList<Product> arrayOfProducts = new ArrayList<Product>();
+    private static ArrayList<Table> arrayOfTables = new ArrayList<>();
+    private static ArrayList<Product> arrayOfProducts = new ArrayList<>();
     private static Table selectedTable;
     private static Product selectedProduct;
     static TinyDB tinyDB = new TinyDB(App.context);
@@ -30,7 +30,7 @@ public class DataGetSet {
     
     public static void addTable(Table table) {
         arrayOfTables.add(table);
-        ArrayList<Object> tableObjects = new ArrayList<Object>();
+        ArrayList<Object> tableObjects = new ArrayList<>();
 
         for(Table p : arrayOfTables){
             tableObjects.add((Object)p); // casting to raw objects
@@ -42,7 +42,7 @@ public class DataGetSet {
         Log.d("removeTable", "reached");
         arrayOfTables.remove(table);
 
-        ArrayList<Object> tableObjects = new ArrayList<Object>();
+        ArrayList<Object> tableObjects = new ArrayList<>();
 
         for(Table p : arrayOfTables){
             if(!p.equals(table)) {
@@ -62,7 +62,7 @@ public class DataGetSet {
 
     public static void addProduct(Product product) {
         arrayOfProducts.add(product);
-        ArrayList<Object> productObjects = new ArrayList<Object>();
+        ArrayList<Object> productObjects = new ArrayList<>();
 
         for(Product p : arrayOfProducts){
             productObjects.add((Object)p); // casting to raw objects
@@ -73,7 +73,7 @@ public class DataGetSet {
     public static void removeProduct(Product product) {
         arrayOfProducts.remove(product);
 
-        ArrayList<Object> productObjects = new ArrayList<Object>();
+        ArrayList<Object> productObjects = new ArrayList<>();
 
         for(Product p : arrayOfProducts){
             if(!p.equals(product)) {
