@@ -13,8 +13,6 @@ Thanks to the author of TinyDB - https://github.com/kcochibili/TinyDB--Android-S
 
 Also maintained the code as per default gate of SonarQube.
 
-Project is still in development mode!
-
 Features:
 - Completely Offline
 - Easy to use
