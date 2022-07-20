@@ -10,4 +10,10 @@ public class Table {
         this.total = total;
     }
 
+    public String toString() {
+        String toString = "";
+        toString = "Name: " + name + " Total:" + total;
+        return toString;
+    }
+
 }

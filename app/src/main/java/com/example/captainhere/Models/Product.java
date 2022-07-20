@@ -10,4 +10,10 @@ public class Product {
         this.mrp = mrp;
     }
 
+    public String toString() {
+        String toString = "";
+        toString = "Name: " + name + " MRP:" + mrp;
+        return toString;
+    }
+
 }

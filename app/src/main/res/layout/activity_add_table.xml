@@ -73,6 +73,7 @@
                     android:id="@+id/editTextTableName"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:maxLength="8"
                     android:ems="10"
                     android:inputType="textPersonName" />
             </LinearLayout>
@@ -82,7 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/textView5"

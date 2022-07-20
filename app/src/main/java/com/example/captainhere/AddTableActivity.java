@@ -52,7 +52,7 @@ public class AddTableActivity extends AppCompatActivity {
 
     private void addTableToList() {
         String name = editTextTableName.getText().toString();
-        String amount = editTextBillAmount.getText().toString();
+        String amount = "0";
         Table table = new Table(name, amount);
         dataGetSet.addTable(table);
 
