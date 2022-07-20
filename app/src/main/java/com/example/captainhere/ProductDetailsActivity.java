@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.captainhere.Functions.DataGetSet;
 import com.example.captainhere.Models.Product;
@@ -13,6 +14,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     DataGetSet dataGetSet;
     Button deleteProduct;
+    ImageView backImgProductDetails;
     Product selectedProduct;
 
     @Override
@@ -23,10 +25,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
         selectedProduct = dataGetSet.getSelectedProduct();
 
         deleteProduct = findViewById(R.id.deleteProduct);
+        backImgProductDetails = findViewById(R.id.backImgProductDetails);
 
         deleteProduct.setOnClickListener(
                 v -> deleteProduct()
         );
+
+        backImgProductDetails.setOnClickListener(
+                v -> openProductList()
+        );
+
     }
 
     private void deleteProduct() {
@@ -34,4 +42,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ViewProductsActivity.class);
         startActivity(intent);
     }
+
+    private void openProductList() {
+        Intent intent = new Intent(this, ViewProductsActivity.class);
+        startActivity(intent);
+    }
+
 }

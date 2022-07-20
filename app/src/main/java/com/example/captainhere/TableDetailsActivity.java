@@ -71,7 +71,7 @@ public class TableDetailsActivity extends AppCompatActivity {
     }
 
     public void openAddItemActivity(){
-        Intent intent = new Intent(this, AddProductActivity.class);
+        Intent intent = new Intent(this, AddItemsActivity.class);
         startActivity(intent);
     }
 

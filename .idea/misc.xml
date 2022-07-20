@@ -7,6 +7,7 @@
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.2545" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/drawable/ic_launcher.xml" value="0.2545" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2545" />
+        <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/activity_add_items.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/activity_add_product.xml" value="0.2" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/activity_add_table.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/activity_test.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/activity_view_products.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/item_product.xml" value="0.2" />
+        <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/item_select_product.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/CaptainHere/app/src/main/res/layout/item_table.xml" value="0.2" />
       </map>
     </option>
