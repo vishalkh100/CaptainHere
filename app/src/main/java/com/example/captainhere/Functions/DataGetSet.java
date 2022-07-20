@@ -37,6 +37,12 @@ public class DataGetSet {
 
     public static void setArrayOfProductItems(ArrayList<ProductItem> arrayOfProductItems) {
         DataGetSet.arrayOfProductItems = arrayOfProductItems;
+        ArrayList<Object> productItemObjects = new ArrayList<>();
+
+        for(ProductItem p : arrayOfProductItems) {
+            productItemObjects.add((Object)p);
+        }
+        tinyDB.putListObject("productItemList", productItemObjects);
     }
 
     public static void addProductItem(ProductItem productItem) {

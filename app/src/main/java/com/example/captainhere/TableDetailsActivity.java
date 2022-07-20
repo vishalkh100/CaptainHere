@@ -26,6 +26,7 @@ public class TableDetailsActivity extends AppCompatActivity {
 
     DataGetSet dataGetSet = new DataGetSet();
     TextView titleHeading;
+    TextView totalBill;
     ImageView addButton;
     ImageView backButton;
     ListView productListView;
@@ -34,10 +35,13 @@ public class TableDetailsActivity extends AppCompatActivity {
     LinearLayout noEntryLayout;
 
     Button deleteTable;
+    Button checkOut;
 
     Table selectedTable;
 
     ArrayList<ProductItem> arrayOfItems = new ArrayList<>();
+
+    int total = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,7 @@ public class TableDetailsActivity extends AppCompatActivity {
         for(ProductItem productItem : productItemList) {
             if(productItem.name.equalsIgnoreCase(selectedTable.name)) {
                 productList.add(productItem.product);
+                total = total + Integer.valueOf(productItem.product.mrp);
             }
         }
 
@@ -75,6 +80,8 @@ public class TableDetailsActivity extends AppCompatActivity {
         }
         productListView.setAdapter(adapter);
 
+        totalBill.setText("Total: "+total);
+
     }
 
     private void setViews() {
@@ -82,9 +89,11 @@ public class TableDetailsActivity extends AppCompatActivity {
         addButton = findViewById(R.id.addButtonTableDetails);
         backButton = findViewById(R.id.backImgTableDetails);
         deleteTable = findViewById(R.id.deleteTable);
+        checkOut = findViewById(R.id.checkOut);
         productListView = findViewById(R.id.itemsListView);
         listViewLayout = findViewById(R.id.itemsListLayout);
         noEntryLayout = findViewById(R.id.noEntryLayoutTableDetails);
+        totalBill = findViewById(R.id.totalBill);
     }
 
     private void initializeViews() {
@@ -103,6 +112,10 @@ public class TableDetailsActivity extends AppCompatActivity {
         deleteTable.setOnClickListener(
                 v -> deleteTable()
         );
+
+        checkOut.setOnClickListener(
+                v -> checkOut()
+        );
     }
 
     public void openAddItemActivity(){
@@ -116,8 +129,22 @@ public class TableDetailsActivity extends AppCompatActivity {
     }
 
     public void deleteTable() {
+        checkOut();
         Log.d("selectedTableName", selectedTable.name);
         dataGetSet.removeTable(selectedTable);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void checkOut(){
+        ArrayList<ProductItem> productListNew = new ArrayList<>();
+
+        for(ProductItem productItem : arrayOfItems) {
+            if(!productItem.name.equalsIgnoreCase(selectedTable.name)) {
+                productListNew.add(productItem);
+            }
+        }
+        dataGetSet.setArrayOfProductItems(productListNew);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
