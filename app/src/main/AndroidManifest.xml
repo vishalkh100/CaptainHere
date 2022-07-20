@@ -18,7 +18,7 @@
             android:name=".ProductDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".TableDetails"
+            android:name=".TableDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".ViewProductsActivity"

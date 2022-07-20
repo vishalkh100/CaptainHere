@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         tableListView.setOnItemClickListener((parent, view, position, id) -> {
             Table t = (Table) parent.getItemAtPosition(position);
             dataGetSet.setSelectedTable(t);
-            Intent intent = new Intent(this, TableDetails.class);
+            Intent intent = new Intent(this, TableDetailsActivity.class);
             startActivity(intent);
         });
     }

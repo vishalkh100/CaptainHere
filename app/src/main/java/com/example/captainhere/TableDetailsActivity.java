@@ -17,7 +17,7 @@ import com.example.captainhere.Models.Table;
 
 import java.util.ArrayList;
 
-public class TableDetails extends AppCompatActivity {
+public class TableDetailsActivity extends AppCompatActivity {
 
     DataGetSet dataGetSet = new DataGetSet();
     TextView titleHeading;
