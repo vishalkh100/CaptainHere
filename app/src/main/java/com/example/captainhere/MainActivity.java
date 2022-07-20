@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.captainhere.Functions.DataGetSet;
+import com.example.captainhere.Functions.TinyDB;
 import com.example.captainhere.Models.Table;
 import com.example.captainhere.Models.TableListAdapter;
 
@@ -38,7 +39,15 @@ public class MainActivity extends AppCompatActivity {
         initializeViews();
         onClickListeners();
 
-        arrayOfUsers = dataGetSet.getArrayOfUsers();
+        TinyDB tinydb = new TinyDB(this);
+        ArrayList<Object> playerObjects = tinydb.getListObject("tableList", Table.class);
+        ArrayList<Table> tableList = new ArrayList<Table>();
+
+        for(Object objs : playerObjects){
+            tableList.add((Table) objs);
+        }
+        arrayOfUsers = tableList;
+        dataGetSet.setArrayOfUsers(arrayOfUsers);
 
         TableListAdapter adapter = new TableListAdapter(this, arrayOfUsers);
         if(!arrayOfUsers.isEmpty()) {

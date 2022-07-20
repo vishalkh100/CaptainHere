@@ -11,8 +11,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.captainhere.Functions.DataGetSet;
+import com.example.captainhere.Functions.TinyDB;
 import com.example.captainhere.Models.Product;
 import com.example.captainhere.Models.ProductListAdapter;
+import com.example.captainhere.Models.Table;
 import com.example.captainhere.Models.TableListAdapter;
 
 import java.util.ArrayList;
@@ -38,7 +40,15 @@ public class ViewProductsActivity extends AppCompatActivity {
         setViews();
         onClickListeners();
 
-        arrayOfProducts = dataGetSet.getArrayOfProducts();
+        TinyDB tinydb = new TinyDB(this);
+        ArrayList<Object> playerObjects = tinydb.getListObject("productList", Product.class);
+        ArrayList<Product> productList = new ArrayList<Product>();
+
+        for(Object objs : playerObjects){
+            productList.add((Product) objs);
+        }
+        arrayOfProducts = productList;
+        dataGetSet.setArrayOfProducts(arrayOfProducts);
 
         ProductListAdapter adapter = new ProductListAdapter(this, arrayOfProducts);
         if(!arrayOfProducts.isEmpty()) {
