@@ -11,57 +11,52 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.captainhere.Functions.DataGetSet;
-import com.example.captainhere.Models.Table;
+import com.example.captainhere.Models.Product;
+import com.example.captainhere.Models.ProductListAdapter;
 import com.example.captainhere.Models.TableListAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ViewProductsActivity extends AppCompatActivity {
 
     DataGetSet dataGetSet = new DataGetSet();
     TextView titleHeading;
-    ImageView menuButton;
     ImageView addButton;
-    ImageView backImg;
-    ListView tableListView;
+    ImageView backButton;
+    ListView productListView;
 
     LinearLayout listViewLayout;
     LinearLayout noEntryLayout;
 
-    ArrayList<Table> arrayOfUsers = new ArrayList<Table>();
+    ArrayList<Product> arrayOfProducts = new ArrayList<Product>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_view_products);
+
         setViews();
-        initializeViews();
         onClickListeners();
 
-        arrayOfUsers = dataGetSet.getArrayOfUsers();
+        arrayOfProducts = dataGetSet.getArrayOfProducts();
 
-        TableListAdapter adapter = new TableListAdapter(this, arrayOfUsers);
-        if(!arrayOfUsers.isEmpty()) {
+        ProductListAdapter adapter = new ProductListAdapter(this, arrayOfProducts);
+        if(!arrayOfProducts.isEmpty()) {
             listViewLayout.setVisibility(View.VISIBLE);
         } else {
             listViewLayout.setVisibility(View.GONE);
         }
-        tableListView.setAdapter(adapter);
+        productListView.setAdapter(adapter);
+
     }
 
     private void setViews() {
-        titleHeading = findViewById(R.id.titleHeading);
-        menuButton = findViewById(R.id.backImg);
+        titleHeading = findViewById(R.id.titleProducts);
         addButton = findViewById(R.id.addButton);
-        tableListView = findViewById(R.id.tableListView);
-        listViewLayout = findViewById(R.id.listViewLayout);
-        noEntryLayout = findViewById(R.id.noEntryLayout);
-        backImg = findViewById(R.id.backImg);
-    }
-
-    private void initializeViews() {
-        String title = this.getString(R.string.table_screen_title);
-        titleHeading.setText(title);
+        backButton = findViewById(R.id.backImgViewProd);
+        productListView = findViewById(R.id.productListView);
+        listViewLayout = findViewById(R.id.productListLayout);
+        noEntryLayout = findViewById(R.id.noEntryLayoutProducts);
     }
 
     private void onClickListeners() {
@@ -69,18 +64,18 @@ public class MainActivity extends AppCompatActivity {
                 v -> openAddTableActivity()
         );
 
-        backImg.setOnClickListener(
-                v -> openViewProductActivity()
+        backButton.setOnClickListener(
+                v -> openViewTablesActivity()
         );
     }
 
     public void openAddTableActivity(){
-        Intent intent = new Intent(this, AddTableActivity.class);
+        Intent intent = new Intent(this, AddProductActivity.class);
         startActivity(intent);
     }
 
-    public void openViewProductActivity(){
-        Intent intent = new Intent(this, ViewProductsActivity.class);
+    public void openViewTablesActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
