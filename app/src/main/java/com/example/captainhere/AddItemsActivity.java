@@ -14,7 +14,9 @@ import com.example.captainhere.Functions.DataGetSet;
 import com.example.captainhere.Functions.TinyDB;
 import com.example.captainhere.Models.ItemListAdapter;
 import com.example.captainhere.Models.Product;
+import com.example.captainhere.Models.ProductItem;
 import com.example.captainhere.Models.ProductListAdapter;
+import com.example.captainhere.Models.Table;
 
 import java.util.ArrayList;
 
@@ -22,7 +24,6 @@ public class AddItemsActivity extends AppCompatActivity {
 
     DataGetSet dataGetSet = new DataGetSet();
     TextView titleHeading;
-    ImageView addButton;
     ImageView backButton;
     ListView productListView;
 
@@ -31,6 +32,8 @@ public class AddItemsActivity extends AppCompatActivity {
 
     ArrayList<Product> arrayOfProducts = new ArrayList<>();
 
+    Table selectedTable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,8 @@ public class AddItemsActivity extends AppCompatActivity {
 
         setViews();
         onClickListeners();
+
+        selectedTable = dataGetSet.getSelectedTable();
 
         TinyDB tinydb = new TinyDB(this);
         ArrayList<Object> playerObjects = tinydb.getListObject("productList", Product.class);
@@ -75,8 +80,9 @@ public class AddItemsActivity extends AppCompatActivity {
 
         productListView.setOnItemClickListener((parent, view, position, id) -> {
             Product p = (Product) parent.getItemAtPosition(position);
-            dataGetSet.setSelectedProduct(p);
-            Intent intent = new Intent(this, ProductDetailsActivity.class);
+            ProductItem productItem = new ProductItem(selectedTable.name, p);
+            dataGetSet.addProductItem(productItem);
+            Intent intent = new Intent(this, TableDetailsActivity.class);
             startActivity(intent);
         });
 
