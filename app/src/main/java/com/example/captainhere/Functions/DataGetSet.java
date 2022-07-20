@@ -1,5 +1,7 @@
 package com.example.captainhere.Functions;
 
+import android.util.Log;
+
 import com.example.captainhere.Models.Product;
 import com.example.captainhere.Models.Table;
 
@@ -11,7 +13,8 @@ public class DataGetSet {
 
     private static ArrayList<Table> arrayOfTables = new ArrayList<Table>();
     private static ArrayList<Product> arrayOfProducts = new ArrayList<Product>();
-
+    private static Table selectedTable;
+    private static Product selectedProduct;
     static TinyDB tinyDB = new TinyDB(App.context);
 
 
@@ -36,7 +39,17 @@ public class DataGetSet {
     }
 
     public static void removeTable(Table table) {
+        Log.d("removeTable", "reached");
         arrayOfTables.remove(table);
+
+        ArrayList<Object> tableObjects = new ArrayList<Object>();
+
+        for(Table p : arrayOfTables){
+            if(!p.equals(table)) {
+                tableObjects.add((Object)p); // casting to raw objects
+            }
+        }
+        tinyDB.putListObject("tableList", tableObjects);
     }
 
     public ArrayList<Product> getArrayOfProducts() {
@@ -59,6 +72,31 @@ public class DataGetSet {
 
     public static void removeProduct(Product product) {
         arrayOfProducts.remove(product);
+
+        ArrayList<Object> productObjects = new ArrayList<Object>();
+
+        for(Product p : arrayOfProducts){
+            if(!p.equals(product)) {
+                productObjects.add((Object) p); // casting to raw objects
+            }
+        }
+        tinyDB.putListObject("productList", productObjects);
+    }
+
+    public static Table getSelectedTable() {
+        return selectedTable;
+    }
+
+    public void setSelectedTable(Table selectedTable) {
+        this.selectedTable = selectedTable;
+    }
+
+    public static Product getSelectedProduct() {
+        return selectedProduct;
+    }
+
+    public void setSelectedProduct(Product selectedProduct) {
+        this.selectedProduct = selectedProduct;
     }
 
 }

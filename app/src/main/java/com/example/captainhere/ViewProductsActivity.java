@@ -77,6 +77,14 @@ public class ViewProductsActivity extends AppCompatActivity {
         backButton.setOnClickListener(
                 v -> openViewTablesActivity()
         );
+
+        productListView.setOnItemClickListener((parent, view, position, id) -> {
+            Product p = (Product) parent.getItemAtPosition(position);
+            dataGetSet.setSelectedProduct(p);
+            Intent intent = new Intent(this, ProductDetailsActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     public void openAddTableActivity(){
